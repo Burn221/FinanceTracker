@@ -1,0 +1,13 @@
+{
+  "1": {
+    "service": {
+      "expenses": {}
+    },
+    "id": 1,
+    "date": "2025-07-25",
+    "name": "geher",
+    "description": "rhehre",
+    "category": "FOOD",
+    "cost": 12000
+  }
+}
