@@ -5,11 +5,12 @@ import com.NikitaNevmyvaka.ExpenseTracker.intefrace.ExpenseCLI;
 import com.NikitaNevmyvaka.ExpenseTracker.model.Expense;
 import com.NikitaNevmyvaka.ExpenseTracker.service.ExpenseService;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ExpenseService service= new ExpenseService();
         ExpenseCLI CLI= new ExpenseCLI(service);
         JsonStorage storage= new JsonStorage(service);

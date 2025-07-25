@@ -7,6 +7,7 @@ import com.NikitaNevmyvaka.ExpenseTracker.model.Expense;
 import com.NikitaNevmyvaka.ExpenseTracker.repository.RepositoryInterface;
 
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeParseException;
@@ -215,7 +216,7 @@ public class ExpenseService implements RepositoryInterface {
 
     }
 
-    public void ExportToCSV(){
+    public void ExportToCSV() throws IOException {
         for(Map.Entry<Integer,Expense> entry: expenses.entrySet()){
             expensesList.add(entry.getValue());
         }

@@ -1,7 +1,11 @@
 {
   "1": {
     "service": {
-      "expenses": {}
+      "csVstorage": {
+        "csvFilePath": "C:\\Users\\HP\\Desktop\\FinanceTracker\\FileStorages\\CSVexpensesStorage.csv"
+      },
+      "expenses": {},
+      "expensesList": []
     },
     "id": 1,
     "date": "2025-07-25",
@@ -12,7 +16,11 @@
   },
   "2": {
     "service": {
-      "expenses": {}
+      "csVstorage": {
+        "csvFilePath": "C:\\Users\\HP\\Desktop\\FinanceTracker\\FileStorages\\CSVexpensesStorage.csv"
+      },
+      "expenses": {},
+      "expensesList": []
     },
     "id": 2,
     "date": "2025-07-25",
