@@ -63,8 +63,15 @@ public class ExpenseCLI {
                 service.sumOfExpensesForMonth(scanner);
                 break;
 
+            case ("csv"):
+                service.ExportToCSV();
+                break;
+
             case ("exit"):
                 break ;
+
+
+
 
             default:
                 System.out.println("Wrong command! To see all available commands type: /Help");
