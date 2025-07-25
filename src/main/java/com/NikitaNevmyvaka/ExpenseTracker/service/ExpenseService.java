@@ -14,6 +14,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class ExpenseService implements RepositoryInterface {
+
+
     //region Increment
 
 
@@ -23,7 +25,7 @@ public class ExpenseService implements RepositoryInterface {
         return nextId.getAndIncrement();
     }
 
-    public void setNextId(int id){
+    public void setNextId(int id) {
         nextId.set(id);
     }
 
@@ -58,12 +60,12 @@ public class ExpenseService implements RepositoryInterface {
 
     @Override
     public void deleteExpense(Scanner scanner) {
-
+        allExpences();
         while (true) {
 
-            allExpences();
+
             try {
-                System.out.println("Enter the id of a task you'd like to delete");
+                System.out.println("Enter the id of a expense you'd like to delete");
                 int idToDelete = parseInteger(scanner);
                 checkIfCollectionIsNull(idToDelete);
                 expenses.remove(idToDelete);
@@ -86,7 +88,7 @@ public class ExpenseService implements RepositoryInterface {
             try {
                 allExpences();
 
-                System.out.println("Enter the id of a task you'd like to update");
+                System.out.println("Enter the id of the expense you'd like to update");
                 int idToUpdate = parseInteger(scanner);
                 checkIfCollectionIsNull(idToUpdate);
                 System.out.println();
@@ -95,7 +97,7 @@ public class ExpenseService implements RepositoryInterface {
                 casesToUpdateExpense(line, idToUpdate, scanner);
                 break;
             } catch (NullPointerException e) {
-                System.out.println("This id doesn't exists! Please try again or write /Back to get back to the main menu");
+                System.out.println("This id doesn't exist! Please try again or write /Back to get back to the main menu");
                 System.out.println();
             }
         }
@@ -105,18 +107,52 @@ public class ExpenseService implements RepositoryInterface {
 
     @Override
     public void allExpences() {
-        if (expenses.isEmpty()) {
-            System.out.println("You have no existing expenses! Please add some and try later");
-            System.out.println();
-        } else {
-            System.out.println("Showing all expenses...");
-            for (Map.Entry<Integer, Expense> entry : expenses.entrySet()) {
-                System.out.println(entry.getValue());
-                System.out.println();
-            }
+        System.out.println("Showing all expenses...");
+        System.out.println();
+        int maxLength = 0;
+
+        List<String[]> rows = new ArrayList<>();
+        String[] headers = {"ID", "Date", "Name", "Description", "Category", "Cost"};
+        rows.add(headers);
+
+        for (Map.Entry<Integer, Expense> entry : expenses.entrySet()) {
+            Expense t = entry.getValue();
+            rows.add(new String[]{String.valueOf(t.getId())
+                    , t.getDate().toString()
+                    , t.getName()
+                    , t.getDescription(),
+                    t.getCategory().displayName
+                    , String.valueOf(t.getCost())});
+
+
         }
 
+        int colsSize = headers.length;
+        int[] width = new int[colsSize];
+
+        for (int i = 0; i < colsSize; i++) {
+            maxLength = 0;
+            for (String[] str : rows) {
+                maxLength = Math.max(maxLength, str[i].length());
+            }
+            width[i] = maxLength;
+        }
+
+        StringBuilder fmt = new StringBuilder();
+        for (int w : width) {
+            fmt.append("%-").append(w).append("s  ");
+
+        }
+        fmt.append("\n");
+
+        for (String[] row : rows) {
+            System.out.printf(fmt.toString(), (Object[]) row);
+        }
+        System.out.println();
     }
+
+
+
 
     @Override
     public void sumOfAllExpenses() {
@@ -124,7 +160,7 @@ public class ExpenseService implements RepositoryInterface {
         int sum = expenses.values().stream()
                 .mapToInt(Expense::getCost)
                 .sum();
-
+        System.out.println();
         System.out.println("Your total expenses are: " + sum + "₸");
         System.out.println();
 
@@ -138,6 +174,7 @@ public class ExpenseService implements RepositoryInterface {
                 .filter(entry -> entry.getDate().getMonth().equals(month))
                 .mapToInt(Expense::getCost)
                 .sum();
+        System.out.println();
         System.out.println("Your total expenses for " + month + " are: " + sumMonth + "₸");
         System.out.println();
 
@@ -167,7 +204,7 @@ public class ExpenseService implements RepositoryInterface {
 
     //endregion
 
-    //region creating a new task realization
+    //region creating a new expense realization
     public Expense createNewExpense(Scanner scanner) {
 
         System.out.println();

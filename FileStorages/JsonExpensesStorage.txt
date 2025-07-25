@@ -9,5 +9,16 @@
     "description": "rhehre",
     "category": "FOOD",
     "cost": 12000
+  },
+  "2": {
+    "service": {
+      "expenses": {}
+    },
+    "id": 2,
+    "date": "2025-07-25",
+    "name": "rhhe",
+    "description": "rhehre",
+    "category": "FOOD",
+    "cost": 12000
   }
 }
