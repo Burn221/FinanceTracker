@@ -1,6 +1,7 @@
 package com.NikitaNevmyvaka.ExpenseTracker.service;
 
 import com.NikitaNevmyvaka.ExpenseTracker.Exceptions.BackException;
+import com.NikitaNevmyvaka.ExpenseTracker.Storage.CSVstorage;
 import com.NikitaNevmyvaka.ExpenseTracker.Storage.JsonStorage;
 import com.NikitaNevmyvaka.ExpenseTracker.model.Expense;
 import com.NikitaNevmyvaka.ExpenseTracker.repository.RepositoryInterface;
@@ -14,6 +15,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class ExpenseService implements RepositoryInterface {
+
+    CSVstorage csVstorage= new CSVstorage();
 
 
     //region Increment
@@ -44,6 +47,16 @@ public class ExpenseService implements RepositoryInterface {
 
     public void setExpenses(LinkedHashMap<Integer, Expense> expenses) {
         this.expenses = expenses;
+    }
+
+    private List<Expense> expensesList= new ArrayList<>();
+
+    public List<Expense> getExpensesList() {
+        return expensesList;
+    }
+
+    public void setExpensesList(List<Expense> expensesList) {
+        this.expensesList = expensesList;
     }
 
     //endregion
@@ -194,10 +207,22 @@ public class ExpenseService implements RepositoryInterface {
         System.out.println();
         System.out.println("/month or month: this command shows you summary of expenses in chosen month");
         System.out.println();
+        System.out.println("/csv or csv- this command let you export your expenses to csv file and then open it in Excel or other programs");
         System.out.println("/back: returns you back to the main menu");
         System.out.println();
         System.out.println("/exit or exit: exits from the program");
         System.out.println();
+
+    }
+
+    public void ExportToCSV(){
+        for(Map.Entry<Integer,Expense> entry: expenses.entrySet()){
+            expensesList.add(entry.getValue());
+        }
+
+        csVstorage.exportToCsv(expensesList, csVstorage.getCsvFilePath());
+
+        System.out.println("Successfully exported your data to .csv format!");
 
     }
 
