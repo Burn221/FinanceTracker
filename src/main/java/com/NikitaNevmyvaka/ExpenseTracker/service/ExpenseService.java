@@ -52,13 +52,7 @@ public class ExpenseService implements RepositoryInterface {
 
     private List<Expense> expensesList= new ArrayList<>();
 
-    public List<Expense> getExpensesList() {
-        return expensesList;
-    }
 
-    public void setExpensesList(List<Expense> expensesList) {
-        this.expensesList = expensesList;
-    }
 
     //endregion
 
@@ -216,7 +210,7 @@ public class ExpenseService implements RepositoryInterface {
 
     }
 
-    public void ExportToCSV() throws IOException {
+    public void ExportToCSV()  {
         for(Map.Entry<Integer,Expense> entry: expenses.entrySet()){
             expensesList.add(entry.getValue());
         }

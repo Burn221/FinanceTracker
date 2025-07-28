@@ -23,12 +23,19 @@ public class CSVstorage {
         return csvFilePath;
     }
 
-    public void exportToCsv(List<Expense> expensesList, String filePath) throws IOException {
+    public void exportToCsv(List<Expense> expensesList, String filePath)  {
 
-        Path path= Paths.get(csvFilePath);
-        Files.deleteIfExists(path);
+        try {
+            Path path= Paths.get(csvFilePath);
+            Files.deleteIfExists(path);
+        } catch (IOException e) {
+            System.out.println("Wrong input! Please try again");
+        }
 
         try (FileWriter writer = new FileWriter(filePath)) {
+
+
+
             CSVFormat csvFormat = CSVFormat.DEFAULT.withDelimiter(';')
 
                     .builder()
@@ -55,12 +62,6 @@ public class CSVstorage {
             System.out.println("Wrong input! Please try again");
         }
 
-    }
-
-    public void clearCurrentFile(String path)throws IOException{
-        try(FileWriter writer= new FileWriter(path,false)){
-
-        }
     }
 
 }

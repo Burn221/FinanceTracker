@@ -1,12 +1,5 @@
 {
   "1": {
-    "service": {
-      "csVstorage": {
-        "csvFilePath": "C:\\Users\\HP\\Desktop\\FinanceTracker\\FileStorages\\CSVexpensesStorage.csv"
-      },
-      "expenses": {},
-      "expensesList": []
-    },
     "id": 1,
     "date": "2025-07-25",
     "name": "geher",
@@ -15,18 +8,19 @@
     "cost": 12000
   },
   "2": {
-    "service": {
-      "csVstorage": {
-        "csvFilePath": "C:\\Users\\HP\\Desktop\\FinanceTracker\\FileStorages\\CSVexpensesStorage.csv"
-      },
-      "expenses": {},
-      "expensesList": []
-    },
     "id": 2,
-    "date": "2025-07-25",
-    "name": "rhhe",
-    "description": "rhehre",
+    "date": "2025-07-26",
+    "name": "rhreher",
+    "description": "herhe",
     "category": "FOOD",
+    "cost": 12000
+  },
+  "3": {
+    "id": 3,
+    "date": "2025-07-26",
+    "name": "rherher",
+    "description": "rher",
+    "category": "TRANSPORT",
     "cost": 12000
   }
 }
