@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Expense {
 
-    ExpenseService service= new ExpenseService();
+;
 
     private int id;
     private LocalDate date;

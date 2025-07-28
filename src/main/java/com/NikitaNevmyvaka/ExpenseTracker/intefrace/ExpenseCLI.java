@@ -14,7 +14,7 @@ public class ExpenseCLI {
     }
     Scanner scanner= new Scanner(System.in);
 
-    public void run() throws IOException {
+    public void run()  {
         System.out.println("Welcome to the Finance Tracker 1.0. Write command \"Help\" to get list of all commands ");
         outer:
         while (true){
@@ -34,7 +34,7 @@ public class ExpenseCLI {
         }
     }
 
-    private void CLImainLogic(String command) throws IOException {
+    private void CLImainLogic(String command)  {
         switch (command){
             case("help"):
                 service.showListOfAllCommands();

@@ -52,13 +52,7 @@ public class ExpenseService implements RepositoryInterface {
 
     private List<Expense> expensesList= new ArrayList<>();
 
-    public List<Expense> getExpensesList() {
-        return expensesList;
-    }
 
-    public void setExpensesList(List<Expense> expensesList) {
-        this.expensesList = expensesList;
-    }
 
     //endregion
 
@@ -209,14 +203,15 @@ public class ExpenseService implements RepositoryInterface {
         System.out.println("/month or month: this command shows you summary of expenses in chosen month");
         System.out.println();
         System.out.println("/csv or csv- this command let you export your expenses to csv file and then open it in Excel or other programs");
-        System.out.println("/back: returns you back to the main menu");
+        System.out.println();
+        System.out.println("/back- returns you back to the main menu");
         System.out.println();
         System.out.println("/exit or exit: exits from the program");
         System.out.println();
 
     }
 
-    public void ExportToCSV() throws IOException {
+    public void ExportToCSV()  {
         for(Map.Entry<Integer,Expense> entry: expenses.entrySet()){
             expensesList.add(entry.getValue());
         }
