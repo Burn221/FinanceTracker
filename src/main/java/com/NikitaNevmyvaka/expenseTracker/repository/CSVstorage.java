@@ -1,11 +1,10 @@
-package com.NikitaNevmyvaka.ExpenseTracker.Storage;
+package com.NikitaNevmyvaka.expenseTracker.repository;
 
-import com.NikitaNevmyvaka.ExpenseTracker.model.Expense;
-import com.NikitaNevmyvaka.ExpenseTracker.service.ExpenseService;
+import com.NikitaNevmyvaka.expenseTracker.config.AppConfig;
+import com.NikitaNevmyvaka.expenseTracker.model.Expense;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
-import java.io.File;
 import java.io.FileWriter;
 
 import java.io.IOException;
@@ -16,17 +15,17 @@ import java.util.List;
 
 public class CSVstorage {
 
-    String csvFilePath = "C:\\Users\\HP\\Desktop\\FinanceTracker\\FileStorages\\CSVexpensesStorage.csv";
+    AppConfig config= new AppConfig();
 
 
-    public String getCsvFilePath() {
-        return csvFilePath;
-    }
+
+
+
 
     public void exportToCsv(List<Expense> expensesList, String filePath)  {
 
         try {
-            Path path= Paths.get(csvFilePath);
+            Path path= Paths.get(config.getCsvPath());
             Files.deleteIfExists(path);
         } catch (IOException e) {
             System.out.println("Wrong input! Please try again");
