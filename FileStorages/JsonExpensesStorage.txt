@@ -22,5 +22,13 @@
     "description": "rher",
     "category": "TRANSPORT",
     "cost": 12000
+  },
+  "4": {
+    "id": 4,
+    "date": "2025-07-29",
+    "name": "hrthr",
+    "description": "herhre",
+    "category": "FOOD",
+    "cost": 12000
   }
 }

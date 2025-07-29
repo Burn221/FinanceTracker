@@ -1,9 +1,8 @@
 package serviceTest;
 
-import com.NikitaNevmyvaka.ExpenseTracker.model.Expense;
-import com.NikitaNevmyvaka.ExpenseTracker.service.ExpenseService;
+import com.NikitaNevmyvaka.expenseTracker.model.Expense;
+import com.NikitaNevmyvaka.expenseTracker.service.ExpenseService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -16,7 +15,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
 
 
 public class ExpenseServiceTest {

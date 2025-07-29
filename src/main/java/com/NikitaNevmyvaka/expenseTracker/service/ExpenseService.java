@@ -1,13 +1,11 @@
-package com.NikitaNevmyvaka.ExpenseTracker.service;
+package com.NikitaNevmyvaka.expenseTracker.service;
 
-import com.NikitaNevmyvaka.ExpenseTracker.Exceptions.BackException;
-import com.NikitaNevmyvaka.ExpenseTracker.Storage.CSVstorage;
-import com.NikitaNevmyvaka.ExpenseTracker.Storage.JsonStorage;
-import com.NikitaNevmyvaka.ExpenseTracker.model.Expense;
-import com.NikitaNevmyvaka.ExpenseTracker.repository.RepositoryInterface;
+import com.NikitaNevmyvaka.expenseTracker.CLI.BackException;
+import com.NikitaNevmyvaka.expenseTracker.config.AppConfig;
+import com.NikitaNevmyvaka.expenseTracker.repository.CSVstorage;
+import com.NikitaNevmyvaka.expenseTracker.model.Expense;
 
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeParseException;
@@ -15,9 +13,10 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-public class ExpenseService implements RepositoryInterface {
+public class ExpenseService implements ExpenseServiceInterface {
 
     CSVstorage csVstorage= new CSVstorage();
+    AppConfig config= new AppConfig();
 
 
     //region Increment
@@ -216,7 +215,7 @@ public class ExpenseService implements RepositoryInterface {
             expensesList.add(entry.getValue());
         }
 
-        csVstorage.exportToCsv(expensesList, csVstorage.getCsvFilePath());
+        csVstorage.exportToCsv(expensesList, config.getCsvPath());
 
         System.out.println("Successfully exported your data to .csv format!");
 

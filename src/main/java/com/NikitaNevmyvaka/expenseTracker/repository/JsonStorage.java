@@ -1,7 +1,8 @@
-package com.NikitaNevmyvaka.ExpenseTracker.Storage;
+package com.NikitaNevmyvaka.expenseTracker.repository;
 
-import com.NikitaNevmyvaka.ExpenseTracker.model.Expense;
-import com.NikitaNevmyvaka.ExpenseTracker.service.ExpenseService;
+import com.NikitaNevmyvaka.expenseTracker.config.AppConfig;
+import com.NikitaNevmyvaka.expenseTracker.model.Expense;
+import com.NikitaNevmyvaka.expenseTracker.service.ExpenseService;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
@@ -15,14 +16,12 @@ import java.util.Map;
 
 public class JsonStorage {
 
+
+
     public JsonStorage(ExpenseService service){
         this.service=service;
     }
 
-    String path="C:\\Users\\HP\\Desktop\\FinanceTracker\\FileStorages\\JsonExpensesStorage.txt";
-    public String getPath() {
-        return path;
-    }
 
     ExpenseService service= new ExpenseService();
 

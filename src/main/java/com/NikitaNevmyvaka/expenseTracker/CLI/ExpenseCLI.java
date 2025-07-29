@@ -1,9 +1,7 @@
-package com.NikitaNevmyvaka.ExpenseTracker.intefrace;
+package com.NikitaNevmyvaka.expenseTracker.CLI;
 
-import com.NikitaNevmyvaka.ExpenseTracker.Exceptions.BackException;
-import com.NikitaNevmyvaka.ExpenseTracker.service.ExpenseService;
+import com.NikitaNevmyvaka.expenseTracker.service.ExpenseService;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class ExpenseCLI {

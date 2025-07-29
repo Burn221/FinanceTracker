@@ -1,6 +1,6 @@
-package com.NikitaNevmyvaka.ExpenseTracker.model;
+package com.NikitaNevmyvaka.expenseTracker.model;
 
-import com.NikitaNevmyvaka.ExpenseTracker.service.ExpenseService;
+import com.NikitaNevmyvaka.expenseTracker.service.ExpenseService;
 
 import java.time.LocalDate;
 import java.util.Objects;

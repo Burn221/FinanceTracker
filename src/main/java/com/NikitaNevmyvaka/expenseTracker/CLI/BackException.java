@@ -1,4 +1,4 @@
-package com.NikitaNevmyvaka.ExpenseTracker.Exceptions;
+package com.NikitaNevmyvaka.expenseTracker.CLI;
 
 public class BackException extends RuntimeException{
     public BackException(){super();}
